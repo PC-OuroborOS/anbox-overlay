@@ -67,6 +67,6 @@ pkg_postinst() {
 	linux-mod_pkg_postinst
 	if use '!systemd'; then
 		elog "For openrc-based installations, the system administrator should"
-		elog "manually add \"binder\" and \"ashmem\" to /etc/conf.d/modules."
+		elog "manually add \"binder_linux\" and \"ashmem_linux\" to /etc/conf.d/modules."
 	fi
 }
