@@ -26,5 +26,3 @@ anbox software by doing something undocumented.
 In summary: nothing to see here, check back later.
 
 -gmt
-
-Greg Turner <gmt@be-evil.net>
