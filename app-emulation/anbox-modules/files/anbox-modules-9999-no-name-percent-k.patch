@@ -1,0 +1,15 @@
+NAME="%k" is a noop when allowed by udev, and
+recent udev make a fuss about it in syslog.
+
+This should probably be upstreamed.
+
+-gmt
+
+diff -urpN anbox-modules-9999.orig/kernel/99-anbox.rules anbox-modules-9999/kernel/99-anbox.rules
+--- anbox-modules-9999.orig/kernel/99-anbox.rules	2017-04-23 02:58:25.875038346 -0700
++++ anbox-modules-9999/kernel/99-anbox.rules	2017-04-23 02:59:00.974796546 -0700
+@@ -1,2 +1,2 @@
+-KERNEL=="ashmem", NAME="%k", MODE="0666"
+-KERNEL=="binder", NAME="%k", MODE="0666"
++KERNEL=="ashmem", MODE="0666"
++KERNEL=="binder", MODE="0666"

@@ -38,6 +38,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}"/${PN}-9999-no-name-percent-k.patch
 	for amod in ashmem binder; do
 		sed -e '/^KERNEL_SRC/,/[^[:space:]]/{/^KERNEL_SRC/d;/^[[:space:]]*$/d}' \
 			-e 's|\(\sV=\)0\(\s\)|\11 KBUILD_VERBOSE=1\2|' \
