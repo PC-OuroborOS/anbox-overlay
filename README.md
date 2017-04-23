@@ -18,10 +18,15 @@ Once the implementation is working this will enable
 the installation of anbox itself and its dependencies
 by means of something like:
 ```bash
+mkdir -p /etc/portage/package.accept_keywords
+pushd /etc/portage/package.accept_keywords >/dev/null
+ln -s $(portageq get_repo_path / anbox-overlay)/doc/anbox-package.accept_keywords ./anbox
+popd >/dev/null
 emerge app-emulation/anbox
 ```
-Once installed, it should be possible to use the
-anbox software by doing something undocumented.
+
+Once thusly installed, it should be possible to fire up the
+anbox thingys by doing some lorem ipsum dolor blah blah etc.
 
 In summary: nothing to see here, check back later.
 
