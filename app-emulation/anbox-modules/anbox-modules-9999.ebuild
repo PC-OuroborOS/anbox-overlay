@@ -9,7 +9,7 @@ inherit flag-o-matic git-r3 udev linux-info linux-mod
 
 DESCRIPTION="Kernel modules for anbox"
 HOMEPAGE="http://anbox.io/"
-# SRC_URI=""
+SRC_URI=""
 
 LICENSE="GPL-3"
 SLOT="0"
