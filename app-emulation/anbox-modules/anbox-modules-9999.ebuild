@@ -13,7 +13,7 @@ SRC_URI=""
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="-custom-cflags -debug systemd"
 RESTRICT="debug? ( strip ) splitdebug !custom-cflags? ( installsources ) test"
 
