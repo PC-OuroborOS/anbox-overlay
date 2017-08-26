@@ -38,7 +38,11 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-9999-no-name-percent-k.patch
+	# Remove deprecated syntax from udev rule #
+	sed -e 's/\sNAME="%k",\s/ /' \
+		-i 99-anbox.rules \
+		|| die
+
 	for amod in ashmem binder; do
 		sed -e '/^KERNEL_SRC/,/[^[:space:]]/{/^KERNEL_SRC/d;/^[[:space:]]*$/d}' \
 			-e 's|\(\sV=\)0\(\s\)|\11 KBUILD_VERBOSE=1\2|' \
@@ -61,7 +65,7 @@ src_install() {
 		insinto /usr/lib/modules-load.d/
 		newins "${S}"/anbox.conf anbox.conf
 	fi
-	udev_newrules "${S}"/99-anbox.rules 99-anbox.rules
+	udev_dorules 99-anbox.rules
 }
 
 pkg_postinst() {

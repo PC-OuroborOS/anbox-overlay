@@ -2,7 +2,7 @@
 Description=Anbox Session Manager
 
 [Service]
-ExecStart=/usr/bin/anbox --gles-driver=host session-manager
+ExecStart=/usr/bin/anbox session-manager
 
 [Install]
 WantedBy=default.target
