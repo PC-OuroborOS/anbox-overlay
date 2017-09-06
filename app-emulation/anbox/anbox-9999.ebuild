@@ -4,7 +4,9 @@
 
 EAPI=6
 
-inherit cmake-utils git-r3 linux-info systemd udev versionator
+PYTHON_COMPAT=(python2_7)
+
+inherit python-single-r1 cmake-utils git-r3 linux-info systemd udev versionator
 
 DESCRIPTION="Run Android applications on any GNU/Linux operating system"
 HOMEPAGE="https://anbox.io/"
@@ -21,6 +23,7 @@ RESTRICT="mirror"
 RDEPEND="dev-util/android-tools
 	net-firewall/iptables"
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	app-emulation/anbox-modules
 	app-emulation/lxc
 	dev-libs/boost:=[threads]
@@ -54,6 +57,7 @@ CONFIG_CHECK="
 
 pkg_setup() {
 	linux-info_pkg_setup
+	python-single-r1_pkg_setup
 }
 
 src_prepare() {
